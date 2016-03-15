@@ -1,0 +1,119 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* HTML Elements */
+body {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  clear: both;
+}
+
+/* Design Classes */
+
+.page {
+  margin: 44px 0 0 0;
+}
+
+/* The app bar and it's parts */
+
+.app-bar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: #C55C00;
+  color: white;
+  padding: 10px 10px 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.app-bar .left-icon {
+  margin-right: 10px;  
+}
+
+.app-bar .right-icon {
+  float: right;
+  margin-top: 2px;
+  margin-right: 10px;
+}
+
+.app-bar .fa {
+  font-size: 22px; 
+}
+
+.app-bar a {
+  color: white;
+  decoration: none;
+}
+
+/* The plus button */
+
+.add-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background-color: #C55C00;
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 18px;
+  line-height: 52px;
+}
+
+/* Items list */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  padding-left: 20px;
+  table-layout: fixed;
+}
+
+tr { 
+  padding-left: 20px;
+}
+
+.item {
+  font-size: 12px;
+  height: 3em;
+  line-height: 3em;
+}
+
+.item:nth-child(even) {
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.item .column {
+  max-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-spacing: 10px;
+}
+
+.item .column:first-child {
+  padding-left: 10px;
+}
+
+.item .column:last-child {
+  text-align: right;
+  padding-right: 10px;
+}

@@ -5,60 +5,107 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>SST</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="vendor/font-awesome-4.5.0/css/font-awesome.min.css">
+  <script src="js/main.js"></script>
 </head>
 <body>
 
-  <h1 class="app-bar">
-    <!--
-    <i class="fa fa-sign-in left-icon"></i>
-    -->
-    <span class="title">Clients</span>
-    <a onclick="window.open('http://app.solarsalestracker.com', '_system', 'location=yes');"><i class="fa fa-sign-in right-icon"></i></a>
-  </h1>
-  
-  <div class="page">
+  <div id="list" class="layout">
+
+    <h1 class="app-bar">
+      <!--
+      onclick="window.open('http://app.solarsalestracker.com', '_blank', 'location=yes');"
+      -->
+      <i class="fa fa-bars left-icon" onclick="showLayout('web');"></i>
+      <span class="title">Sales Leads</span>
+      <i class="fa fa-plus right-icon" onclick="showLayout('edit');"></i>
+    </h1>
     
-    <table>
-      <tr class="item">
-        <td class="column">Joel</td>
-        <td class="column">Dare</td>
-        <td class="column">Roy, UT</td>
-        <td class="column">801-425-3905</td>
-      </tr>
-      <tr class="item">
-        <td class="column">Fredrick</td>
-        <td class="column">Von Hungersonleeto</td>
-        <td class="column">Salt Lake City, UT</td>
-        <td class="column">801-555-1212</td>
-      </tr>
-      <tr class="item">
-        <td class="column">John</td>
-        <td class="column">Doe</td>
-        <td class="column">Roy, UT</td>
-        <td class="column">801-132-4567</td>
-      </tr>
-      <tr class="item">
-        <td class="column">Jimmy</td>
-        <td class="column">Hendricks</td>
-        <td class="column">Roy, UT</td>
-        <td class="column">402-555-9999</td>
-      </tr>
-      <tr class="item">
-        <td class="column">John</td>
-        <td class="column">Wayne</td>
-        <td class="column">Roy, UT</td>
-        <td class="column">801-555-1212</td>
-      </tr>
-    </table>
-    
-    <div class="add-button">
-      <i class="fa fa-plus"></i>
+    <div class="page">
+      
+      <table>
+        <tr class="item">
+          <td class="column">Joel</td>
+          <td class="column">Dare</td>
+          <td class="column">Roy, UT</td>
+          <td class="column">801-425-3905</td>
+        </tr>
+        <tr class="item">
+          <td class="column">Fredrick</td>
+          <td class="column">Von Hungersonleeto</td>
+          <td class="column">Salt Lake City, UT</td>
+          <td class="column">801-555-1212</td>
+        </tr>
+        <tr class="item">
+          <td class="column">John</td>
+          <td class="column">Doe</td>
+          <td class="column">Roy, UT</td>
+          <td class="column">801-132-4567</td>
+        </tr>
+        <tr class="item">
+          <td class="column">Jimmy</td>
+          <td class="column">Hendricks</td>
+          <td class="column">Roy, UT</td>
+          <td class="column">402-555-9999</td>
+        </tr>
+        <tr class="item">
+          <td class="column">John</td>
+          <td class="column">Wayne</td>
+          <td class="column">Roy, UT</td>
+          <td class="column">801-555-1212</td>
+        </tr>
+      </table>
+      
+      <!--
+      <div class="add-button">
+        <i class="fa fa-plus" onclick="showEdit();"></i>
+      </div>
+      -->
+
+      <div class="banner">
+        <p>Solar Sales Tracker</p>
+      </div>
+      
     </div>
-    
+
   </div>
+
+  <div id="web" class="layout">
+
+    <h1 class="app-bar">
+      <!--
+      onclick="window.open('http://app.solarsalestracker.com', '_blank', 'location=yes');"
+      -->
+      <i class="fa fa-arrow-left left-icon" onclick="showLayout('list');"></i>
+      <span class="title">Website</span>
+    </h1>
+
+    <div class="page">
+      <iframe src="http://app.solarsalestracker.com" class="webFrame"></iframe>
+    </div>
+
+  </div>
+
+  <div id="edit" class="layout">
+
+    <h1 class="app-bar">
+      <!--
+      onclick="window.open('http://app.solarsalestracker.com', '_blank', 'location=yes');"
+      -->
+      <i class="fa fa-arrow-left left-icon" onclick="showLayout('list');"></i>
+      <span class="title">Edit Lead</span>
+    </h1>
+    
+    <div class="page">
+      Form goes here.
+      <button>Save</button>
+      <button onclick="showLayout('list');">Cancel</button>
+    </div>
   
+  </div>
+
 </body>
 </html>

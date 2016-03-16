@@ -2,7 +2,7 @@
   <name>Solar Sales Tracker</name>
   <description>Solar Sales Tracker App</description>
   <author href="http://joeldare.com" email="joel@joeldare.com">Joel Dare</author>
-  <content src="index.html"/>
+  <content src="www/index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>

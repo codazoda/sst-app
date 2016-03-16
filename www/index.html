@@ -100,9 +100,12 @@
     </h1>
     
     <div class="page">
-      Form goes here.
-      <button>Save</button>
-      <button onclick="showLayout('list');">Cancel</button>
+      <form class="editForm">
+        <input type="text" name="first" value="First Name" onfocus="if (this.value=='First Name') this.value = ''">
+        <input type="text" name="last" value="Last Name">
+        <button>Save</button>
+        <button onclick="showLayout('list');">Cancel</button>
+      </form>
     </div>
   
   </div>

@@ -1,5 +1,4 @@
 function showLayout(layoutName) {
-    console.log('Showing ' + layoutName);
     var layoutList = document.getElementsByClassName('layout');
     var layoutToShow = document.getElementById(layoutName);
     // Loop through the layouts hiding them

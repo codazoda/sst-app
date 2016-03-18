@@ -1,3 +1,17 @@
+// On ready
+document.addEventListener('DOMContentLoaded', function(){
+    // Load a user using the QuickUser class
+    user = new QuickUser();
+    // Read the user ID that was assigned
+    var id = user.get("id");
+    // Read the number of hits
+    var hits = user.get("hits");
+    // Set your own variable
+    //user.set("first", "Joel");
+    console.log('User: ' + id);
+    console.log('Hits: ' + hits);
+});
+
 function showLayout(layoutName) {
     var layoutList = document.getElementsByClassName('layout');
     var layoutToShow = document.getElementById(layoutName);

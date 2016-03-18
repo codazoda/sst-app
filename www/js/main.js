@@ -28,6 +28,9 @@ function showHelp(buttonName) {
         case 'zip':
             initialValue = 'Postal Code';
             break;
+        case 'phone':
+            initialValue = 'Phone Number';
+            break;
         case 'email':
             initialValue = 'Email Address';
             break;

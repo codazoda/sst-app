@@ -64,7 +64,7 @@
   <access origin="*" browserOnly="true"/>
   <plugin name="cordova-plugin-whitelist" version="1"/>
   <allow-intent href="http://app.solarsalestracker.com/*"/>
-  <allow-intent href="http://app.solarsalestracker.com/*"/>
+  <allow-intent href="http://solarsalestracker.com/*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>

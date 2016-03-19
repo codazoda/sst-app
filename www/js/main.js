@@ -4,6 +4,7 @@ var leads;
 document.addEventListener('DOMContentLoaded', function(){
     leads = JSON.parse(localStorage.getItem('leads'));
     console.log(leads);
+    refreshLeads();
 });
 
 function showLayout(layoutName) {
@@ -89,4 +90,40 @@ function saveLead() {
         fields[i].value = "";
     }
     showLayout('list');
+}
+
+function addLeadRow(first, last, location, phone) {
+    var table = document.getElementById("leads");
+    var row = table.insertRow(-1);
+    row.className = 'item';
+    var cell = row.insertCell(0);
+    cell.className = 'column';
+    cell.innerHTML = first;
+    cell = row.insertCell(1);
+    cell.className = 'column';
+    cell.innerHTML = last;
+    cell = row.insertCell(2);
+    cell.className = 'column';
+    cell.innerHTML = location;
+    cell = row.insertCell(3);
+    cell.className = 'column';
+    cell.innerHTML = phone;
+}
+
+function refreshLeads() {
+    clearAllRows();
+    for (i=0; i<leads.length; i++) {
+        var cityState = '';
+        if (leads[i][3] == '') {
+            cityState = leads[i][2];
+        } else {
+            cityState = leads[i][2] + ', ' + leads[i][3];
+        }
+        addLeadRow(leads[i][0], leads[i][1], cityState, leads[i][5]);
+    }
+}
+
+function clearAllRows() {
+    var table = document.getElementById("leads");
+    table.innerHTML = '';
 }

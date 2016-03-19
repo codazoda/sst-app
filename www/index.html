@@ -103,17 +103,18 @@
     
     <div class="page">
       <form class="editForm">
-        <input type="text" name="first" value="First Name" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="last" value="Last Name" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="city" value="City" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="state" value="State" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="zip" value="Postal Code" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="phone" value="Phone Number" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="email" value="Email Address" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <input type="text" name="contact" value="Best Time to Contact" onfocus="showHelp(this.name);" onblur="showHelp(this.name);">
-        <button>Save</button>
-        <button onclick="showLayout('list');">Cancel</button>
+        <input type="text" name="first" value="" placeholder="First Name">
+        <input type="text" name="last" value="" placeholder="Last Name">
+        <input type="text" name="city" value="" placeholder="City">
+        <input type="text" name="state" value="" placeholder="State">
+        <input type="text" name="zip" value="" placeholder="Postal Code">
+        <input type="text" name="phone" value=""
+         placeholder="Phone Number">
+        <input type="text" name="email" value="" placeholder="Email Address">
+        <input type="text" name="best" value="" placeholder="Best Time to Contact">
       </form>
+        <button class="editFormButton" onclick="saveLead()">Save</button>
+        <button class="editFormButton" onclick="showLayout('list');">Cancel</button>
     </div>
   
   </div>

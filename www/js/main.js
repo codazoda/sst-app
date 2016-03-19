@@ -1,15 +1,9 @@
+var leads;
+
 // On ready
 document.addEventListener('DOMContentLoaded', function(){
-    // Load a user using the QuickUser class
-    user = new QuickUser();
-    // Read the user ID that was assigned
-    var id = user.get("id");
-    // Read the number of hits
-    var hits = user.get("hits");
-    // Set your own variable
-    //user.set("first", "Joel");
-    console.log('User: ' + id);
-    console.log('Hits: ' + hits);
+    leads = JSON.parse(localStorage.getItem('leads'));
+    console.log(leads);
 });
 
 function showLayout(layoutName) {
@@ -23,6 +17,7 @@ function showLayout(layoutName) {
     layoutToShow.style.display = 'block';
 }
 
+/*
 function showHelp(buttonName) {
     var initialValue = '';
     var thisButton = document.querySelectorAll("input[name=" + buttonName + "]")[0];
@@ -48,7 +43,7 @@ function showHelp(buttonName) {
         case 'email':
             initialValue = 'Email Address';
             break;
-        case 'contact':
+        case 'best':
             initialValue = 'Best Time to Contact';
             break;
         default:
@@ -62,4 +57,36 @@ function showHelp(buttonName) {
         thisButton.style.color = 'silver';
         thisButton.value = initialValue;
     }
+}
+*/
+
+function saveLead() {
+    var fields = [
+        document.querySelectorAll("input[name=first]")[0],
+        document.querySelectorAll("input[name=last]")[0],
+        document.querySelectorAll("input[name=city]")[0], 
+        document.querySelectorAll("input[name=state]")[0],
+        document.querySelectorAll("input[name=zip]")[0],
+        document.querySelectorAll("input[name=phone]")[0],
+        document.querySelectorAll("input[name=email]")[0],
+        document.querySelectorAll("input[name=best]")[0],
+    ];
+    // Loop through the fields saving them
+    leads.push([
+        fields[0].value, 
+        fields[1].value, 
+        fields[2].value, 
+        fields[3].value, 
+        fields[4].value, 
+        fields[5].value, 
+        fields[6].value, 
+        fields[7].value
+    ]);
+    console.log(leads);
+    localStorage.setItem('leads', JSON.stringify(leads));  
+    // Clear the values
+    for(i=0; i<=7; i++) {
+        fields[i].value = "";
+    }
+    showLayout('list');
 }

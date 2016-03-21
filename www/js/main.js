@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', function(){
     refreshLeads();
 });
 
-function showLayout(layoutName) {
+function showLayout(layoutName, layoutData) {
+    // Set a default bit of layout data
+    if (typeof layoutData === 'undefined') { 
+        layoutData = new Array();
+    }
     var layoutList = document.getElementsByClassName('layout');
     var layoutToShow = document.getElementById(layoutName);
     // Loop through the layouts hiding them
@@ -97,6 +101,7 @@ function addLeadRow(first, last, location, phone) {
     var table = document.getElementById("leads");
     var row = table.insertRow(-1);
     row.className = 'item';
+    row.onclick = function() { showLayout('view') };
     var cell = row.insertCell(0);
     cell.className = 'column';
     cell.innerHTML = first;
@@ -120,7 +125,7 @@ function refreshLeads() {
         var cell = row.insertCell(0);
         cell.className = 'column';
         cell.style.textAlign = "center";
-        cell.innerHTML = 'Empty!';
+        cell.innerHTML = 'You have not added any leads yet.';
     } else {
         for (i=0; i<leads.length; i++) {
             var cityState = '';

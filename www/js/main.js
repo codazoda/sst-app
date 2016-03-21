@@ -8,11 +8,14 @@ document.addEventListener('DOMContentLoaded', function(){
     refreshLeads();
 });
 
+/**
+ * Display a specific layout div.
+ * 
+ * @param  {[type]} layoutName The name of the layout to display
+ * @param  {[type]} layoutData Optional data that the layout can use
+ * @return null
+ */
 function showLayout(layoutName, layoutData) {
-    // Set a default bit of layout data
-    if (typeof layoutData === 'undefined') { 
-        layoutData = new Array();
-    }
     var layoutList = document.getElementsByClassName('layout');
     var layoutToShow = document.getElementById(layoutName);
     // Loop through the layouts hiding them
@@ -97,11 +100,21 @@ function saveLead() {
     showLayout('list');
 }
 
-function addLeadRow(first, last, location, phone) {
+function addLeadRow(id) {
+    console.log(leads[id]);
+    var cityState = '';
+    if (leads[id][3] == '') {
+        cityState = leads[id][2];
+    } else {
+        cityState = leads[id][2] + ', ' + leads[id][3];
+    }
+    var first = leads[id][0];
+    var last = leads[id][1];
+    var phone = leads[id][5];
     var table = document.getElementById("leads");
     var row = table.insertRow(-1);
     row.className = 'item';
-    row.onclick = function() { showLayout('view') };
+    row.onclick = function() { showLayout('view', id) };
     var cell = row.insertCell(0);
     cell.className = 'column';
     cell.innerHTML = first;
@@ -110,7 +123,7 @@ function addLeadRow(first, last, location, phone) {
     cell.innerHTML = last;
     cell = row.insertCell(2);
     cell.className = 'column';
-    cell.innerHTML = location;
+    cell.innerHTML = cityState;
     cell = row.insertCell(3);
     cell.className = 'column';
     cell.innerHTML = phone;
@@ -128,13 +141,7 @@ function refreshLeads() {
         cell.innerHTML = 'You have not added any leads yet.';
     } else {
         for (i=0; i<leads.length; i++) {
-            var cityState = '';
-            if (leads[i][3] == '') {
-                cityState = leads[i][2];
-            } else {
-                cityState = leads[i][2] + ', ' + leads[i][3];
-            }
-            addLeadRow(leads[i][0], leads[i][1], cityState, leads[i][5]);
+            addLeadRow(i);
         }
     }
 }

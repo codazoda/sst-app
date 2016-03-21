@@ -1,9 +1,10 @@
-var leads;
+var leads = new Array();
 
 // On ready
 document.addEventListener('DOMContentLoaded', function(){
-    leads = JSON.parse(localStorage.getItem('leads'));
-    console.log(leads);
+    if (localStorage.getItem('leads') != null) {
+        leads = JSON.parse(localStorage.getItem('leads'));
+    }
     refreshLeads();
 });
 
@@ -83,12 +84,12 @@ function saveLead() {
         fields[6].value, 
         fields[7].value
     ]);
-    console.log(leads);
     localStorage.setItem('leads', JSON.stringify(leads));  
     // Clear the values
     for(i=0; i<=7; i++) {
         fields[i].value = "";
     }
+    refreshLeads();
     showLayout('list');
 }
 
@@ -112,14 +113,24 @@ function addLeadRow(first, last, location, phone) {
 
 function refreshLeads() {
     clearAllRows();
-    for (i=0; i<leads.length; i++) {
-        var cityState = '';
-        if (leads[i][3] == '') {
-            cityState = leads[i][2];
-        } else {
-            cityState = leads[i][2] + ', ' + leads[i][3];
+    if (leads.length == 0) {
+        var table = document.getElementById("leads");
+        var row = table.insertRow(-1);
+        row.className = 'item';
+        var cell = row.insertCell(0);
+        cell.className = 'column';
+        cell.style.textAlign = "center";
+        cell.innerHTML = 'Empty!';
+    } else {
+        for (i=0; i<leads.length; i++) {
+            var cityState = '';
+            if (leads[i][3] == '') {
+                cityState = leads[i][2];
+            } else {
+                cityState = leads[i][2] + ', ' + leads[i][3];
+            }
+            addLeadRow(leads[i][0], leads[i][1], cityState, leads[i][5]);
         }
-        addLeadRow(leads[i][0], leads[i][1], cityState, leads[i][5]);
     }
 }
 

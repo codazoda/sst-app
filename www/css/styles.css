@@ -151,7 +151,6 @@ tr {
   line-height: 24px;
   font-size: 14px;
   padding: 0 10px 0 10px;
-  color: silver;
 }
 
 .editFormButton {
@@ -165,6 +164,12 @@ tr {
   color: white;
   line-height: 30px;
   font-size: 14px;
+}
+
+/* View layout */
+
+#view {
+  display: none;
 }
 
 /* Web layout */

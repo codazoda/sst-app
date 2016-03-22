@@ -35,6 +35,8 @@ function showLayout(layoutName, id) {
             document.getElementById('viewPhone').innerHTML = leads[id][5];
             document.getElementById('viewEmail').innerHTML = leads[id][6];
             document.getElementById('viewBest').innerHTML = leads[id][7];
+            // Set the delete method
+            document.getElementById('delete').onclick = function() { deleteLead(id); };
             break;
         case 'web':
             // This works but I don't like it.
@@ -115,6 +117,14 @@ function saveLead() {
     for(i=0; i<=7; i++) {
         fields[i].value = "";
     }
+    refreshLeads();
+    showLayout('list');
+}
+
+function deleteLead(id) {
+    var result = leads.splice(id, 1);
+    // Save the new leads list
+    localStorage.setItem('leads', JSON.stringify(leads));
     refreshLeads();
     showLayout('list');
 }

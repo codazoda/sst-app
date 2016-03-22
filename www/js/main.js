@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function(){
  * Display a specific layout div.
  * 
  * @param  {[type]} layoutName The name of the layout to display
- * @param  {[type]} layoutData Optional data that the layout can use
+ * @param  {[type]} id         Optional user id for the layout to use
  * @return null
  */
-function showLayout(layoutName, layoutData) {
+function showLayout(layoutName, id) {
     var layoutList = document.getElementsByClassName('layout');
     var layoutToShow = document.getElementById(layoutName);
     // Loop through the layouts hiding them
@@ -24,6 +24,25 @@ function showLayout(layoutName, layoutData) {
     };
     // Show the specified layout
     layoutToShow.style.display = 'block';
+    switch (layoutName) {
+        case 'view':
+            // Load this user
+            document.getElementById('viewFirst').innerHTML = leads[id][0];
+            document.getElementById('viewLast').innerHTML = leads[id][1];
+            document.getElementById('viewCity').innerHTML = leads[id][2];
+            document.getElementById('viewState').innerHTML = leads[id][3];
+            document.getElementById('viewZip').innerHTML = leads[id][4];
+            document.getElementById('viewPhone').innerHTML = leads[id][5];
+            document.getElementById('viewEmail').innerHTML = leads[id][6];
+            document.getElementById('viewBest').innerHTML = leads[id][7];
+            break;
+        case 'web':
+            // This works but I don't like it.
+            //document.getElementsByClassName('webFrame')[0].src = "http://app.solarsalestracker.com";
+            break;
+        default:
+            // Nothing to do in most layouts
+    }
 }
 
 /*
@@ -101,7 +120,6 @@ function saveLead() {
 }
 
 function addLeadRow(id) {
-    console.log(leads[id]);
     var cityState = '';
     if (leads[id][3] == '') {
         cityState = leads[id][2];

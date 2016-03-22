@@ -97,18 +97,42 @@
       -->
       <i class="fa fa-arrow-left left-icon" onclick="showLayout('list');"></i>
       <span class="title">View Lead</span>
-      <i class="fa fa-trash right-icon" onclick="showLayout('edit');"></i>
+      <i class="fa fa-trash right-icon" onclick="alert('delete')"></i>
     </h1>
     
     <div class="page">
       <table>
-        <tr>
-          <td>First Name</td>
-          <td></td>
+        <tr class="item">
+          <td class="column">First Name</td>
+          <td id="viewFirst"></td>
         </tr>
-        <tr>
-          <td>Last Name</td>
-          <td></td>
+        <tr class="item">
+          <td class="column">Last Name</td>
+          <td id="viewLast"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">City</td>
+          <td id="viewCity"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">State</td>
+          <td id="viewState"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">Zip</td>
+          <td id="viewZip"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">Phone</td>
+          <td id="viewPhone"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">Email Address</td>
+          <td id="viewEmail"></td>
+        </tr>
+        <tr class="item">
+          <td class="column">Best Time</td>
+          <td id="viewBest"></td>
         </tr>
       </table>
     </div>

@@ -90,6 +90,10 @@ table {
   table-layout: fixed;
 }
 
+#list table { 
+  margin-bottom: 60px;
+}
+
 tr { 
   padding-left: 20px;
 }
